@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistisi Indonesia</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        img {
+          display: block;
+          margin: auto;
+          width: 200px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #083224;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .toggle-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-family: Arial;
+        }
+
+        .toggle-button:hover {
+            background-color: #ccc;
+        }
+
+        .content {
+            margin-left: 20px;
+            display: none; /* Hidden by default */
+        }
+
+        .content p {
+            margin: 5px 0;
+            font-size: 16px;
+            padding: 10px;
+            font-family: Arial;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="statistik.gif" alt="statistik">
+        <h1>STATISTISI INDONESIA</h1>
+        <div class="section">
+            <button class="toggle-button" onclick="toggleContent('materi')">1. Materi</button>
+            <div id="materi" class="content">
+                <button class="toggle-button" onclick="toggleContent('aturan-hukum')">1.1. Aturan Hukum</button>
+                <div id="aturan-hukum" class="content">
+                    <button class="toggle-button" onclick="toggleContent('asn')">1.1.1. ASN</button>
+                    <div id="asn" class="content">
+                        <p><a href="https://peraturan.bpk.go.id/Download/326904/UU%20Nomor%2020%20Tahun%202023.pdf" target="_blank">1.1.1.1. UU No. 20 Tahun 2023</a></p>
+                        <p><a href="https://www.youtube.com/live/3XVPGOJS_CE?si=nc1wxxNMsVRmLRmY" target="_blank">1.1.1.2. Sosialisasi #1 | BKD DKI JAKARTA OFFICIAL</a></p>
+                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs76Ydqr16wX4oXORXQT_nTg&si=BKa3Ca3FzT8eoT-u" target="_blank">1.1.1.3. Sosialisasi #2 | Sushan Sugiarto</a></p>
+                    </div>
+                    <button class="toggle-button" onclick="toggleContent('jabatan-fungsional')">1.1.2. Jabatan Fungsional</button>
+                    <div id="jabatan-fungsional" class="content">
+                        <p><a href="https://peraturan.bpk.go.id/Download/295958/Permen%20PANRB%20Nomor%201%20Tahun%202023.pdf" target="_blank">1.1.2.1. PermenPANRB No. 1 Tahun 2023</a></p>
+                        <p><a href="https://youtu.be/4OXBmdxk_r0?si=Wqu2KCQDBdUy6hCe" target="_blank">1.1.2.2. Sosialisasi #1 | Kementerian PANRB</a></p>
+                        <p><a href="https://www.youtube.com/live/EfWA7J4JONQ?si=cCCzoPSR9zZIwdDc" target="_blank">1.1.2.3. Sosialisasi #2 | Jabatan Fungsional Komdigi</a></p>
+                    </div>
+                    <button class="toggle-button" onclick="toggleContent('angka-kredit')">1.1.3. Angka Kredit, Kenaikan Pangkat dan Jenjang Jabatan Fungsional</button>
+                    <div id="angka-kredit" class="content">
+                        <p><a href="https://peraturan.bpk.go.id/Download/311437/Peraturan%20BKN%20Nomor%203%20Tahun%202023.pdf" target="_blank">1.1.3.1. PerBKN No. 3 Tahun 2023</a></p>
+                        <p><a href="https://youtu.be/F3v03FTcvQw?si=otVW8KtIisY0KwQ4" target="_blank">1.1.3.2. Sosialisasi #1 | #ASNPelayanPublik</a></p>
+                        <p><a href="https://youtu.be/5J1CX_TO9d4?si=xPy80h11DamnqA14" target="_blank">1.1.3.3. Sosialisasi #2 | Kementerian Sekretariat Negara RI</a></p>
+                        <p><a href="https://www.youtube.com/live/XxjHi4oIFDY?si=-n8HQVyOKomLpmv8" target="_blank">1.1.3.4. Sosialisasi #3 | Jabatan Fungsional Komdigi</a></p>
+                    </div>
+                    <button class="toggle-button" onclick="toggleContent('pengelolaan-kinerja')">1.1.4. Pengelolaan Kinerja Pegawai ASN</button>
+                    <div id="pengelolaan-kinerja" class="content">
+                        <p><a href="https://peraturan.bpk.go.id/Download/196198/Permen%20PANRB%20No.%206%20Tahun%202022.pdf" target="_blank">1.1.4.1. PermenPANRB No. 6 Tahun 2022</a></p>
+                        <p><a href="https://www.youtube.com/live/CEZz2btFTsw?si=zs2n1nd3I5DCFwU8" target="_blank">1.1.4.2. Sosialisasi #1 | Kementerian Sekretariat Negara RI</a></p>
+                    </div>
+                    <button class="toggle-button" onclick="toggleContent('jabatan-statistisi')">1.1.5. Jabatan Fungsional Statistisi</button>
+                    <div id="jabatan-statistisi" class="content">
+                        <p><a href="https://peraturan.bpk.go.id/Download/210952/Permen%20PANRB%20No.%2012%20Tahun%202022.pdf" target="_blank">1.1.5.1. PermenPANRB No. 12 Tahun 2022</a></p>
+                        <p><a href="https://youtu.be/auZo8r0QD10?si=sq6aZ8WhtZT_QHmr" target="_blank">1.1.5.2. Sosialisasi #1 | Bidang IKPTIK- Kominfo Kota Kediri</a></p>
+                    </div>
+                </div>
+                <button class="toggle-button" onclick="toggleContent('pak-konversi')">1.2. PAK Konversi dan E-Kinerja</button>
+                <div id="pak-konversi" class="content">
+                    <p><a href="https://www.youtube.com/live/A08Crme6euU?si=hO5QOKCrnjiKVRgJ" target="_blank">1.2.1. Sosialisasi PAK Konversi berdasarkan Predikat Kinerja SKP bagi Jabatan Fungsional</a></p>
+                    <p><a href="https://www.youtube.com/live/jSZSaS87to8?si=T7gB28lN-KpMvEVi" target="_blank">1.2.2. Sosialisasi E-Kinerja #1 | Pengembangan Pegawai</a></p>
+                    <p><a href="https://www.youtube.com/live/7q3wIFcaxws?si=UCff7HVRZ0Kl3LAR" target="_blank">1.2.3. Sosialisasi E-Kinerja #2 | BPI Kemendesa PDT</a></p>
+                    <p><a href="https://youtu.be/QxQ3N_FrJQM?si=_MfRF7OqkuVX8_39" target="_blank">1.2.4. Tutorial E-Kinerja | Sushan Sugiarto</a></p>
+                </div>
+                <button class="toggle-button" onclick="toggleContent('statistik-sektoral')">1.3. Statistik Sektoral</button>
+                <div id="statistik-sektoral" class="content">
+                    <button class="toggle-button" onclick="toggleContent('modul')">1.3.1. Modul</button>
+                    <div id="modul" class="content">
+                        <button class="toggle-button" onclick="toggleContent('pusdiklat-bps')">1.3.1.1. Pusdiklat BPS</button>
+                        <div id="pusdiklat-bps" class="content">
+                            <p><a href="https://drive.google.com/drive/folders/1YTMKPRXRD1ulo-jC8KZKAqQojJyovx4U?usp=drive_link" target="_blank">1.3.1.1.1. Perencanaan</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1YTal7c3xSGnZ2wJmyEQk5IOdq09Wz5nx?usp=drive_link" target="_blank">1.3.1.1.2. Perancangan</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1YVejIbEUoYulCuHpV9DZ-dqJT1Xqun6-?usp=drive_link" target="_blank">1.3.1.1.3. Pengumpulan</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1Y_c2muRSmwhbdcHB4qmg_GbPHaiGOwJX?usp=drive_link" target="_blank">1.3.1.1.4. Pengolahan</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1Ybs0na8FaGf0YdhP6-vH8DDtMWa_FD7P?usp=drive_link" target="_blank">1.3.1.1.5. Analisis</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1YbztDXK_0R4M0P2QeXVKrzj2lyuOQ55i?usp=drive_link" target="_blank">1.3.1.1.6. Diseminasi dan Evaluasi</a></p>
+                        </div>
+                        <button class="toggle-button" onclick="toggleContent('deputi-bps')">1.3.1.2. Deputi Bidang Metodologi dan Informasi Statistik BPS</button>
+                        <div id="deputi-bps" class="content">
+                            <p><a href="https://drive.google.com/drive/folders/1ZVEMLHcrxuwI-B2m1fbyk6z51bRj9a8Y?usp=drive_link" target="_blank">1.3.1.2.1. Tata Laksana Penyelenggaraan Statistik</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1ZgvPdHZagL6NpNtyxVedvuRyc6IVuRMC?usp=drive_link" target="_blank">1.3.1.2.2. Langkah Praktis dalam Survei dan Kompilasi Produk Administrasi</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1ZpsS-g_Tv0NSxlKjwNytkJHI75ra9Mmc?usp=drive_link" target="_blank">1.3.1.2.3. Aplikasi Penyelenggaraan Kegiatan Statistik</a></p>
+                            <p><a href="https://drive.google.com/drive/folders/1ZqTXcPqEth7VSYiE6OFabSXlSc9dl604?usp=drive_link" target="_blank">1.3.1.2.4. Dasar-dasar Statistik</a></p>
+                        </div>
+                    </div>
+                    <button class="toggle-button" onclick="toggleContent('webinar')">1.3.2. Webinar</button>
+                    <div id="webinar" class="content">
+                        <button class="toggle-button" onclick="toggleContent('bps-dki')">1.3.2.1. BPS DKI Jakarta</button>
+                        <div id="bps-dki" class="content">
+                            <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4qEeOC0ez_avjV32I8oG3a&si=R5Z0cwAxiuQ4ms0P" target="_blank">1.3.2.1.1. Pembinaan</a></p>
+                            <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4htleILn6FA858kAVOJN5D&si=eeTLlrWJRKdswc17" target="_blank">1.3.2.1.2. Internalisasi</a></p>
+                            <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5oWykrGLhJFQyQO11QXciy&si=lHNwtsY9T2eET25x" target="_blank">1.3.2.1.3. How to Make a Survey</a></p>
+                        </div>
+                        <a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6FQtx_funWku7clKgKH433&si=GKqMjtt74FrZ6VQz" target="_blank"><button class="toggle-button">1.3.2.2. BPS Jawa Tengah</button></a>
+                        <a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6CvD6aamegShoE6uUyLydp&si=o7c9egc_S62HlZqn" target="_blank"><button class="toggle-button">1.3.2.3. BPS Sulawesi Barat</button></a>
+                        <a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5YCCcLaKrCKVP61dvz49PW&si=PE24EPvjbWyrKMra" target="_blank"><button class="toggle-button">1.3.2.4. BPS Sulawesi Tenggara</button></a>
+                    </div>
+                </div>
+                <button class="toggle-button" onclick="toggleContent('statistika')">1.4. Statistika</button>
+                <div id="statistika" class="content">
+                    <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6MTtyXRiWFouL5hoc0ntv5&si=ZWGu4ZdGaIMVomO7" target="_blank">1.4.1. Statistika dan Probabilitas | Indonesia Belajar</a></p>
+                    <p><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank">1.4.2. Statistics and Probability | Khan Academy</a></p>
+                    <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4u7BJdKE7XAGS3f39R6Hm_&si=w4jtJcNsBlBil7Po" target="_blank">1.4.3. Statistik Sosial | Duta Data Statistik</a></p>
+                </div>
+                <button class="toggle-button" onclick="toggleContent('excel')">1.5. Microsoft Excel</button>
+                <div id="excel" class="content">
+                    <p><a href="https://youtube.com/playlist?list=PLoyECfvEFOjYOt0f8CKyj0a_-YnETyKF1&si=O9-fcVtFiQptfh-T" target="_blank">1.5.1. Excel Full Course | Learnit Training</a></p>
+                    <p><a href="https://youtube.com/playlist?list=PLoyECfvEFOjZNdBAHDlVlR242FifiYGjl&si=3ZVw4Mf2hU_4bZvj" target="_blank">1.5.2. Excel Data Analysis Full Course | Learnit Training</a></p>
+                    <p><a href="https://youtube.com/playlist?list=PLSdO4ZofSedqvx7U-JRzSbbYLvcuUP7pf&si=OL6AXsmtjweq7nlS" target="_blank">1.5.3. Tutorial Ms. Excel | Budi Tutorials</a></p>
+                    <p><a href="https://youtube.com/playlist?list=PLh4cGGFoAFuYwvrpQcohWBz5u8uGkeFlp&si=YBKcuwEnnsVAunEZ" target="_blank">1.5.4. Rumus Excel | Ignasius Ryan</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <button class="toggle-button" onclick="toggleContent('soal')">2. Soal</button>
+            <div id="soal" class="content">
+                <a href="https://drive.google.com/drive/folders/1_1PiElVFqgXSKslOOFqLFNkq_zoMvAOQ?usp=drive_link" target="_blank"><button class="toggle-button">2.1. Softfile</button></a>
+                <div id="softfile" class="content">
+                    <!-- Isi Softfile -->
+                </div>
+                <button class="toggle-button" onclick="toggleContent('telegram')">2.2. Telegram</button>
+                <div id="telegram" class="content">
+                    <p><a href="https://t.me/statistisiterampil/2" target="_blank">2.2.1. Tentang BPS</a></p>
+                    <p><a href="https://t.me/statistisiterampil/3" target="_blank">2.2.2. SKB Statistisi 1</a></p>
+                    <p><a href="https://t.me/statistisiterampil/4" target="_blank">2.2.3. SKB Statistisi 2</a></p>
+                    <p><a href="https://t.me/statistisiterampil/6" target="_blank">2.2.4. SKB Statistisi 3</a></p>
+                    <p><a href="https://t.me/statistisiterampil/34" target="_blank">2.2.5. SKB Statistisi 4</a></p>
+                    <p><a href="https://t.me/statistisiterampil/35" target="_blank">2.2.6. SKB Statistisi 5</a></p>
+                    <p><a href="https://t.me/statistisiterampil/36" target="_blank">2.2.7. SKB Statistisi 6</a></p>
+                </div>
+                <button class="toggle-button" onclick="toggleContent('google-forms')">2.3. Google Forms</button>
+                <div id="google-forms" class="content">
+                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeFr0pKtGQKi6iYzYdMZXref4IQaMcPaWjl_W7G3w47DJtTNA/viewform" target="_blank">2.3.1. Statistisi #1</a></p>
+                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScyRyrhzLSuGlTP64_6AUFEe37wBD0dYRdP5mxRRiwTy8aYqw/viewform" target="_blank">2.3.2. Statistisi #2</a></p>
+                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf-tQTxVTP2Ad0hCiq6ccB4gC4esbFC404jquhtp1XkCFZqfQ/viewform" target="_blank">2.3.3. Statistisi #3</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1jVagkF3R4FWvUoRnTDtC69uvIGWMD0D4Bg5oj-RxX58/edit?usp=drivesdk" target="_blank">2.3.4. Sistem Statistik Nasional</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1JpJn9DSsh99pAKjuD1YAfsG2fioM1MUoIDiSDwYlpz0/edit?usp=drivesdk" target="_blank">2.3.5. Penyelenggaraan Kegiatan Statistik</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1mLEA8sg0y_iMph6W6gUf4FUgEspSFq2EtKkdAAZ4gS8/edit?usp=drivesdk" target="_blank">2.3.6. Satu Data Indonesia</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1e1udVfF097ugRzKGk4QQQHxm7oDJpU4uTYrosr0kQ2M/edit?usp=drivesdk" target="_blank">2.3.7. Proses Bisnis Kegiatan Statistik</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1RdzCU29VqzDgxdqedOEv3Z0dCQ_yZSQHlQE7DVtoaB4/edit?usp=drivesdk" target="_blank">2.3.8. Perencanaan Data</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1hdcj5uNyHzSPHddclB7ncKEzHCPblsjFEPpb-QARd_k/edit?usp=drivesdk" target="_blank">2.3.9. Pengumpulan Data</a></p>
+                    <p><a href="https://docs.google.com/forms/d/1ZpcXqII2SLieqG-H4Kl-f-hFdErgmhx_qS7ypsMJavQ/edit?usp=drivesdk" target="_blank">2.3.10. Pemeriksaan Data</a></p>
+                    <p><a href="https://docs.google.com/forms/d/12TT2Qz9VbMRrhudlo9HVN_tf49ydWYYRSzN1gnh-ZGI/edit?usp=drivesdk" target="_blank">2.3.11. Penyebarluasan Data</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
