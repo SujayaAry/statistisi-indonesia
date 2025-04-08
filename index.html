@@ -8,39 +8,43 @@
         /* CSS */
         body {
             font-family: Arial;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; /* Tetap menggunakan warna latar belakang asli */
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #053025; /* Warna teks utama berdasarkan palet */
         }
 
         img {
-          display: block;
-          margin: auto;
-          width: 200px;
+            display: block;
+            margin: auto;
+            width: 200px;
         }
 
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #ffffff; /* Latar belakang tetap putih */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px; /* Menambahkan sudut melengkung */
         }
 
         h1 {
             text-align: center;
             margin-bottom: 20px;
-            color: #083224;
+            color: #053025; /* Warna hijau tua untuk judul */
+            font-size: 2rem;
+            letter-spacing: 1px; /* Jarak antar huruf untuk estetika */
         }
 
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .toggle-button {
+            margin: 1px 0px;
             width: 100%;
-            padding: 10px;
+            padding: 15px;
             border: none;
             cursor: pointer;
             text-align: left;
@@ -48,10 +52,14 @@
             font-weight: bold;
             transition: background-color 0.3s ease;
             font-family: Arial;
+            background-color: #e7e7e7; /* Warna hijau muda untuk tombol */
+            color: #000; /* Teks tombol tetap hijau tua */
+            border-radius: 8px; /* Sudut melengkung untuk tombol */
         }
 
         .toggle-button:hover {
-            background-color: #ccc;
+            background-color: #d1d1d1; /* Warna hijau lebih gelap saat hover */
+            transform: translateY(-2px); /* Efek hover naik sedikit */
         }
 
         .content {
@@ -64,14 +72,19 @@
             font-size: 16px;
             padding: 10px;
             font-family: Arial;
+            background-color: #fafafa; /* Warna latar belakang konten yang lebih lembut */
+            border-radius: 6px; /* Sudut melengkung untuk paragraf */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Bayangan halus */
         }
 
         a {
             text-decoration: none;
-            color: #000;
+            color: #053025; /* Warna hijau tua untuk link */
+            transition: color 0.3s ease; /* Transisi warna saat hover */
         }
 
         a:hover {
+            color: #03211b; /* Warna hijau lebih gelap saat hover */
             text-decoration: underline;
         }
     </style>
