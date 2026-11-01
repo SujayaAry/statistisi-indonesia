@@ -1,257 +1,132 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistisi Indonesia</title>
-    <style>
-        /* CSS */
-        body {
-            font-family: Arial;
-            background-color: #f4f4f4; /* Tetap menggunakan warna latar belakang asli */
-            margin: 0;
-            padding: 0;
-            color: #053025; /* Warna teks utama berdasarkan palet */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4f4f4">
+<meta name="description" content="Kumpulan regulasi, materi, dan latihan soal untuk Jabatan Fungsional Statistisi.">
+<title>Statistisi Indonesia</title>
+<style>
+:root{
+  --bg:#f4f4f4; --surface:#fff; --ink:#10261f; --muted:#5a6e66; --line:#dbe5df;
+  --brand:#053025; --tint:#e8f1ec; --focus:#1f8f6b; --sand:#f3e6c8; --sand-ink:#6b4a0f;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 Arial,"Helvetica Neue",Helvetica,sans-serif}
+[hidden]{display:none!important}
 
-        img {
-            display: block;
-            margin: auto;
-            width: 200px;
-        }
+.page{max-width:800px;margin:20px auto;padding:20px;background:var(--surface);
+  box-shadow:0 4px 6px rgba(0,0,0,.1);border-radius:12px}
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff; /* Latar belakang tetap putih */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 12px; /* Menambahkan sudut melengkung */
-        }
+/* Header: sama seperti tampilan awal */
+.head img{display:block;margin:auto;width:200px;max-width:60%;height:auto}
+.head h1{text-align:center;margin:20px 0;color:var(--brand);font-family:Arial,sans-serif;
+  font-size:clamp(1.45rem,6.4vw,2em);line-height:1.2}
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #053025; /* Warna hijau tua untuk judul */
-        }
+.bar{position:sticky;top:0;z-index:5;background:var(--surface);padding:6px 0 10px}
+.bar-in{display:flex;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px}
+.bar input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;padding:10px 12px;border-radius:8px}
+.bar input::placeholder{color:var(--muted)}
+.bar input:focus{outline:none}
+.bar-in:focus-within{border-color:var(--focus);box-shadow:0 0 0 3px rgba(31,143,107,.22)}
+.bar button{flex:none;border:0;border-radius:9px;background:var(--tint);color:var(--brand);font:inherit;font-weight:600;font-size:.9rem;padding:0 14px;min-height:44px;cursor:pointer}
+.bar button:hover{filter:brightness(.96)}
+.status{margin:6px 4px 0;font-size:.85rem;color:var(--muted);min-height:1.3em}
 
-        .section {
-            margin-bottom: 10px;
-        }
+main{display:grid;gap:12px;padding-bottom:12px}
 
-        .toggle-button {
-            margin: 1px 0px;
-            width: 100%;
-            padding: 15px;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            font-family: Arial;
-            background-color: #e7e7e7; /* Warna hijau muda untuk tombol */
-            color: #000; /* Teks tombol tetap hijau tua */
-            border-radius: 8px; /* Sudut melengkung untuk tombol */
-        }
+summary{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 12px;cursor:pointer;list-style:none;border-radius:10px;font-weight:600;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:8px;height:8px;margin:0 4px 0 2px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .18s}
+details[open]>summary::after{transform:rotate(225deg)}
+summary:hover{background:var(--tint)}
+summary:focus-visible,.link:focus-visible,.bar button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.ttl{flex:1;min-width:0;overflow-wrap:anywhere}
+.num{flex:none;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:500;font-size:.88em;min-width:3.2ch}
+.count{flex:none;background:var(--tint);color:var(--brand);font-size:.78rem;font-weight:600;border-radius:99px;padding:1px 9px}
 
-        .toggle-button:hover {
-            background-color: #d1d1d1; /* Warna hijau lebih gelap saat hover */
-            transform: translateY(-2px); /* Efek hover naik sedikit */
-        }
+details.top{background:#fafcfb;border:1px solid var(--line);border-radius:14px;padding:6px}
+details.top>summary{font-size:1.1rem;font-weight:700;padding:12px}
+details.top>summary .num{background:var(--brand);color:#fff;border-radius:8px;min-width:30px;height:30px;display:grid;place-items:center;font-size:.95rem;font-weight:700}
 
-        .content {
-            margin-left: 20px;
-            display: none; /* Hidden by default */
-        }
+.body{margin:2px 0 6px 18px;padding-left:10px;border-left:2px solid var(--line)}
+details.top>.body{margin-left:24px}
+.body>details>summary{font-size:.98rem}
 
-        .content p {
-            margin: 5px 0;
-            font-size: 16px;
-            padding: 10px;
-            font-family: Arial;
-            background-color: #fafafa; /* Warna latar belakang konten yang lebih lembut */
-            border-radius: 6px; /* Sudut melengkung untuk paragraf */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Bayangan halus */
-        }
+.link{display:flex;align-items:center;gap:10px;min-height:46px;padding:9px 12px;border-radius:10px;color:var(--brand);text-decoration:none;font-size:.95rem}
+.link:hover{background:var(--tint)}
+.link:hover .ttl{text-decoration:underline;text-underline-offset:3px}
+.tag{flex:none;background:var(--sand);color:var(--sand-ink);font-size:.72rem;font-weight:600;border-radius:6px;padding:2px 8px}
 
-        a {
-            text-decoration: none;
-            color: #053025; /* Warna hijau tua untuk link */
-            transition: color 0.3s ease; /* Transisi warna saat hover */
-        }
-
-        a:hover {
-            color: #03211b; /* Warna hijau lebih gelap saat hover */
-            text-decoration: underline;
-        }
-    </style>
+@media (max-width:560px){
+  .page{margin:10px;padding:14px}
+  .link{flex-wrap:wrap;row-gap:2px}
+  .link .ttl{flex:1 1 calc(100% - 5ch)}
+  .link .tag{margin-left:calc(3.2ch + 10px)}
+  .body{margin-left:10px;padding-left:6px}
+  details.top>.body{margin-left:14px}
+  .bar button{padding:0 11px}
+}
+@media (prefers-reduced-motion:reduce){summary::after{transition:none}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <img src="statistik.gif" alt="statistik">
-        <h1>STATISTISI INDONESIA</h1>
-        <div class="section">
-            <button class="toggle-button" onclick="toggleContent('materi')">1. Materi</button>
-            <div id="materi" class="content">
-                <button class="toggle-button" onclick="toggleContent('aturan-hukum')">1.1. Aturan Hukum</button>
-                <div id="aturan-hukum" class="content">
-                    <button class="toggle-button" onclick="toggleContent('asn')">1.1.1. ASN</button>
-                    <div id="asn" class="content">
-                        <p><a href="https://drive.google.com/file/d/1EEtnf4hVPQ3lvryOHPhq3f8h4jX810ZV/view?usp=drive_link" target="_blank">1.1.1.1. UU No. 20 Tahun 2023</a></p>
-                        <p><a href="https://www.youtube.com/live/3XVPGOJS_CE?si=DVG8z-adnSCVDSHS&t=4234" target="_blank">1.1.1.2. Sosialisasi #1 | BKD DKI JAKARTA OFFICIAL</a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs76Ydqr16wX4oXORXQT_nTg&si=BKa3Ca3FzT8eoT-u" target="_blank">1.1.1.3. Sosialisasi #2 | Sushan Sugiarto</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('jabatan-fungsional')">1.1.2. Jabatan Fungsional</button>
-                    <div id="jabatan-fungsional" class="content">
-                        <p><a href="https://drive.google.com/file/d/1GzNGKlgXX9xhGlMMKVIHu94pE5uwrjLW/view?usp=drive_link" target="_blank">1.1.2.1. PermenPANRB No. 1 Tahun 2023</a></p>
-                        <p><a href="https://youtu.be/4OXBmdxk_r0?si=4oZ6oLchZ33HT2TM&t=742" target="_blank">1.1.2.2. Sosialisasi #1 | Kementerian PANRB</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('angka-kredit')">1.1.3. Angka Kredit, Kenaikan Pangkat dan Jenjang Jabatan Fungsional</button>
-                    <div id="angka-kredit" class="content">
-                        <p><a href="https://drive.google.com/file/d/1dVlC5_3dLZiGGnIr4XiNzJC9k474HdB0/view?usp=drive_link" target="_blank">1.1.3.1. PerBKN No. 3 Tahun 2023</a></p>
-                        <p><a href="https://youtu.be/F3v03FTcvQw?si=tc-B_J2J7Zq6O9sK&t=8293" target="_blank">1.1.3.2. Sosialisasi #1 | #ASNPelayanPublik</a></p>
-                        <p><a href="https://youtu.be/5J1CX_TO9d4?si=zz3xQmjgG3nc1T5d&t=787" target="_blank">1.1.3.3. Sosialisasi #2 | Kementerian Sekretariat Negara RI</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('pengelolaan-kinerja')">1.1.4. Pengelolaan Kinerja Pegawai ASN</button>
-                    <div id="pengelolaan-kinerja" class="content">
-                        <p><a href="https://drive.google.com/file/d/1WmtOkeRJueZEIyqL1PrbCy0cfcATbmnc/view?usp=drive_link" target="_blank">1.1.4.1. PermenPANRB No. 6 Tahun 2022</a></p>
-                        <p><a href="https://www.youtube.com/live/CEZz2btFTsw?si=wyM4OxVPfEijzF8U&t=829" target="_blank">1.1.4.2. Sosialisasi #1 | Kementerian Sekretariat Negara RI</a></p>
-                        <p><a href="https://www.youtube.com/live/UArBrAfrD3w?si=TrAleK7v93IxlyVZ&t=7181" target="_blank">1.1.4.3. Sosialisasi #2 | Kantor Regional 10 BKN</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('manajemen-pns')">1.1.5. Manajemen PNS</button>
-                    <div id="manajemen-pns" class="content">
-                        <p><a href="https://drive.google.com/file/d/1SNriAYOsSJOjlu77W9mOeKgj8mCTf_5P/view?usp=drive_link" target="_blank">1.1.5.1. PP No. 17 Tahun 2020</a></p>
-                        <p><a href="https://www.youtube.com/live/mpWbf8qJOUM?si=JkOOzkoOU0SlP0yD&t=1541" target="_blank">1.1.5.2. Sosialisasi #1 | Kementerian PANRB</a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5DoF2GriIBqNqlb0M-EiVk&si=W9Kb9cm5i_BTmLCB" target="_blank">1.1.5.3. Sosialisasi #2 | Ipung Tya</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('disiplin-pns')">1.1.6. Disiplin PNS</button>
-                    <div id="disiplin-pns" class="content">
-                        <p><a href="https://drive.google.com/file/d/1e0Fy5YDgCfws-cu8A3AATEuHuKaN0cv7/view?usp=drive_link" target="_blank">1.1.6.1. PP No. 94 Tahun 2021</a></p>
-                        <p><a href="https://youtu.be/ixQzY0M6yHk?si=qFC4yVSRduZBPliF&t=1012" target="_blank">1.1.6.2. Sosialisasi #1 | Info BMKG</a></p>
-                        <p><a href="https://www.youtube.com/live/s9A3D85S0zs?si=l1FqkL61-uzsOjL-&t=1410" target="_blank">1.1.6.3. Sosialisasi #2 | BKPSDM</a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs7AjeMC6Ttm4Nzehgm3MLpO&si=sYVR1oZAU0BYCZq9" target="_blank">1.1.6.4. Sosialisasi #3 | Sushan Sugiarto</a></p>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('jabatan-statistisi')">1.1.7. Jabatan Fungsional Statistisi</button>
-                    <div id="jabatan-statistisi" class="content">
-                        <p><a href="https://drive.google.com/file/d/1jmuRVABdoYlJcZ-2LODqMgU2UsXKyH7b/view?usp=drive_link" target="_blank">1.1.7.1. PermenPANRB No. 12 Tahun 2022</a></p>
-                        <p><a href="https://youtu.be/auZo8r0QD10?si=mtJNeimaPRKhb54E&t=621" target="_blank">1.1.7.2. Sosialisasi #1 | Bidang IKPTIK - Kominfo Kota Kediri</a></p>
-                    </div>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('pak-konversi')">1.2. PAK Konversi dan E-Kinerja</button>
-                <div id="pak-konversi" class="content">
-                    <p><a href="https://www.youtube.com/live/A08Crme6euU?si=Fxj1tLX7XeIjYv8b&t=1507" target="_blank">1.2.1. Sosialisasi PAK Konversi berdasarkan Predikat Kinerja SKP bagi Jabatan Fungsional</a></p>
-                    <p><a href="https://www.youtube.com/live/XJudj4T2lgo?si=gxfHRk1QuuXXi8i_&t=2520" target="_blank">1.2.2. PENYUSUNAN E-KINERJA BAGI CPNS DAN PPPK | Pusbangkom MKMB</a></p>
-                    <p><a href="https://www.youtube.com/live/ongrPTiRNg0?si=jpZgOd_Ld8BZpfL_&t=1387" target="_blank">1.2.3. PENYUSUNAN E-KINERJA BAGI CPNS DAN PPPK SESI 2 | Pusbangkom MKMB</a></p>
-                    <p><a href="https://www.youtube.com/live/jSZSaS87to8?si=-mPGnR0o9gId5Jua&t=1298" target="_blank">1.2.4. Sosialisasi E-Kinerja #1 | Pengembangan Pegawai</a></p>
-                    <p><a href="https://www.youtube.com/live/7q3wIFcaxws?si=o9_dgEo2ro8LGm1D&t=2512" target="_blank">1.2.5. Sosialisasi E-Kinerja #2 | BPI Kemendesa PDT</a></p>
-                    <p><a href="https://youtu.be/QxQ3N_FrJQM?si=_MfRF7OqkuVX8_39" target="_blank">1.2.6. Tutorial E-Kinerja #1 | Sushan Sugiarto</a></p>
-                    <p><a href="https://www.youtube.com/live/w5OFxh-2YRE?si=qebT4Dc5dzRvtF1W&t=1094" target="_blank">1.2.7. Tutorial E-Kinerja #2 | Disdikpora Kebumen</a></p>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('statistik-sektoral')">1.3. Statistik Sektoral</button>
-                <div id="statistik-sektoral" class="content">
-                    <button class="toggle-button" onclick="toggleContent('modul')">1.3.1. Modul</button>
-                    <div id="modul" class="content">
-                        <button class="toggle-button" onclick="toggleContent('direktorat-diseminasi')">1.3.1.1. Direktorat Diseminasi Statistik BPS</button>
-                        <div id="direktorat-diseminasi" class="content">
-                            <p><a href="https://drive.google.com/file/d/1XSspOEuz32q2JED9MyKZ6dpyQ6TcDuz_/view?usp=drive_link" target="_blank">1.3.1.1.1. Rapat Koordinasi Pembinaan Statistik Sektoral 2025</a></p>
-                            <p><a href="https://drive.google.com/file/d/1PaaPD2YXAGPBTgHuQGzsmneUMP8xh__F/view?usp=drive_link" target="_blank">1.3.1.1.2. Identifikasi Kegiatan Statistik Sektoral</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1Jt-PfNg6eimVfW05XUPeiYNEAZFLZg-Y?usp=drive_link" target="_blank">1.3.1.1.3. Rekomendasi Kegiatan Statistik & Metadata Statistik</a></p>
-                            <p><a href="https://drive.google.com/file/d/1C6PvGvwahX8TvbDRk4iP-zYBgRfmEbgS/view?usp=drive_link" target="_blank">1.3.1.1.4. Proses Bisnis Statistik Terstandar</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1ax4U5Eoi14xRiE0FgzCmKEIsRcA_NLKj?usp=drive_link" target="_blank">1.3.1.1.5. Kualitas Data dan Kelembagaan</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1xpFkInygfuLKfdRCYKsaxdFPl0C1ZALD?usp=drive_link" target="_blank">1.3.1.1.6. Evaluasi Pembinaan Statistik Sektoral</a></p>
-                        </div>
-                        <button class="toggle-button" onclick="toggleContent('deputi-bps')">1.3.1.2. Deputi Bidang Metodologi dan Informasi Statistik BPS</button>
-                        <div id="deputi-bps" class="content">
-                            <p><a href="https://drive.google.com/drive/folders/1ZVEMLHcrxuwI-B2m1fbyk6z51bRj9a8Y?usp=drive_link" target="_blank">1.3.1.2.1. Tata Laksana Penyelenggaraan Statistik</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1ZgvPdHZagL6NpNtyxVedvuRyc6IVuRMC?usp=drive_link" target="_blank">1.3.1.2.2. Langkah Praktis dalam Survei dan Kompilasi Produk Administrasi</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1ZpsS-g_Tv0NSxlKjwNytkJHI75ra9Mmc?usp=drive_link" target="_blank">1.3.1.2.3. Aplikasi Penyelenggaraan Kegiatan Statistik</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1ZqTXcPqEth7VSYiE6OFabSXlSc9dl604?usp=drive_link" target="_blank">1.3.1.2.4. Dasar-dasar Statistik</a></p>
-                        </div>
-                        <button class="toggle-button" onclick="toggleContent('pusdiklat-bps')">1.3.1.3. Pusat Pendidikan dan Pelatihan BPS</button>
-                        <div id="pusdiklat-bps" class="content">
-                            <p><a href="https://drive.google.com/drive/folders/1YTMKPRXRD1ulo-jC8KZKAqQojJyovx4U?usp=drive_link" target="_blank">1.3.1.3.1. Perencanaan</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1YTal7c3xSGnZ2wJmyEQk5IOdq09Wz5nx?usp=drive_link" target="_blank">1.3.1.3.2. Perancangan</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1YVejIbEUoYulCuHpV9DZ-dqJT1Xqun6-?usp=drive_link" target="_blank">1.3.1.3.3. Pengumpulan</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1Y_c2muRSmwhbdcHB4qmg_GbPHaiGOwJX?usp=drive_link" target="_blank">1.3.1.3.4. Pengolahan</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1Ybs0na8FaGf0YdhP6-vH8DDtMWa_FD7P?usp=drive_link" target="_blank">1.3.1.3.5. Analisis</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1YbztDXK_0R4M0P2QeXVKrzj2lyuOQ55i?usp=drive_link" target="_blank">1.3.1.3.6. Diseminasi dan Evaluasi</a></p>
-                        </div>
-                    </div>
-                    <button class="toggle-button" onclick="toggleContent('webinar')">1.3.2. Webinar</button>
-                    <div id="webinar" class="content">
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5GQnE3BYOmaA19RaHWb_wH&si=YsTWdUA59Zz37O-M" target="_blank">1.3.2.1. Pembinaan Statistik Sektoral</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4DSbU4AU9oU-K6_rj_8Oam&si=4F6rv9HLz1FtZfPm" target="_blank">1.3.2.2. Playlist #1 | BPS Provinsi DKI Jakarta</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6FQtx_funWku7clKgKH433&si=GKqMjtt74FrZ6VQz" target="_blank">1.3.2.3. Playlist #2 | BPS Provinsi Jawa Tengah</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4bsm2pAQamr4i9k7a-6aqk&si=2-Gdk_xSVWaV0OK5" target="_blank">1.3.2.4. Playlist #3 | BPS Provinsi Kalimantan Tengah</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6CvD6aamegShoE6uUyLydp&si=o7c9egc_S62HlZqn" target="_blank">1.3.2.5. Playlist #4 | BPS Provinsi Sulawesi Barat</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5YCCcLaKrCKVP61dvz49PW&si=PE24EPvjbWyrKMra" target="_blank">1.3.2.6. Playlist #5 | BPS Provinsi Sulawesi Tenggara</button></a></p>
-                        <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4EsCoOHMWKFrShAkSuyB6Z&si=AhlcZ1Lzm9CO5-G2" target="_blank">1.3.2.7. Playlist #6 | BPS Kota Pontianak</button></a></p>
-                    </div>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('statistika')">1.4. Statistika</button>
-                <div id="statistika" class="content">
-                    <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6MTtyXRiWFouL5hoc0ntv5&si=ZWGu4ZdGaIMVomO7" target="_blank">1.4.1. Statistika dan Probabilitas | Indonesia Belajar</a></p>
-                    <p><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank">1.4.2. Statistics and Probability | Khan Academy</a></p>
-                    <p><a href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4u7BJdKE7XAGS3f39R6Hm_&si=w4jtJcNsBlBil7Po" target="_blank">1.4.3. Statistik Sosial | Duta Data Statistik</a></p>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('app-data')">1.5. Aplikasi Data</button>
-                <div id="app-data" class="content">
-                    <p><a href="https://youtu.be/rro5t8eHXaY?si=8b8bUR60t4gwp0Do" target="_blank">1.5.1. Excel Full Course | Learnit Training</a></p>
-                    <p><a href="https://youtu.be/qrbf9DtR3_c?si=ycBNZ7eqF-6yuWX9" target="_blank">1.5.2. Excel Data Analysis Full Course | Learnit Training</a></p>
-                    <p><a href="https://youtube.com/playlist?list=PLSdO4ZofSedqvx7U-JRzSbbYLvcuUP7pf&si=OL6AXsmtjweq7nlS" target="_blank">1.5.3. Tutorial Ms. Excel | Budi Tutorials</a></p>
-                    <p><a href="https://youtube.com/playlist?list=PLh4cGGFoAFuYwvrpQcohWBz5u8uGkeFlp&si=YBKcuwEnnsVAunEZ" target="_blank">1.5.4. Rumus Excel | Ignasius Ryan</a></p>
-                    <p><a href="https://youtu.be/8mIVgA1iFJ4?si=nBVrpbgy-cGy_2uI" target="_blank">1.5.5. Google Sheets Full Course | Learnit Training</a></p>
-                    <p><a href="https://youtu.be/kSIPCTHjIYg?si=S-g8aY-VLgNe8SLD" target="_blank">1.5.6. Google Forms Full Course | Learnit Training</a></p>
-                    <p><a href="https://youtu.be/72dhMe8FYy0?si=f5a20tdrwz0YTDUo" target="_blank">1.5.7. Tutorial Lengkap Looker Studio + Portofolio Analis Data | HaloTech Academy</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <button class="toggle-button" onclick="toggleContent('soal')">2. Soal</button>
-            <div id="soal" class="content">
-                <button class="toggle-button" onclick="toggleContent('google-drive')">2.1. Google Drive</button>
-                <div id="google-drive" class="content">
-                    <p><a href="https://drive.google.com/drive/folders/1_1PiElVFqgXSKslOOFqLFNkq_zoMvAOQ?usp=drive_link" target="_blank">2.1.1. Softfile</a></p>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('google-forms')">2.2. Google Forms</button>
-                <div id="google-forms" class="content">
-                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeFr0pKtGQKi6iYzYdMZXref4IQaMcPaWjl_W7G3w47DJtTNA/viewform" target="_blank">2.2.1. Statistisi #1</a></p>
-                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScyRyrhzLSuGlTP64_6AUFEe37wBD0dYRdP5mxRRiwTy8aYqw/viewform" target="_blank">2.2.2. Statistisi #2</a></p>
-                    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf-tQTxVTP2Ad0hCiq6ccB4gC4esbFC404jquhtp1XkCFZqfQ/viewform" target="_blank">2.2.3. Statistisi #3</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1jVagkF3R4FWvUoRnTDtC69uvIGWMD0D4Bg5oj-RxX58/edit?usp=drivesdk" target="_blank">2.2.4. Sistem Statistik Nasional</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1JpJn9DSsh99pAKjuD1YAfsG2fioM1MUoIDiSDwYlpz0/edit?usp=drivesdk" target="_blank">2.2.5. Penyelenggaraan Kegiatan Statistik</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1mLEA8sg0y_iMph6W6gUf4FUgEspSFq2EtKkdAAZ4gS8/edit?usp=drivesdk" target="_blank">2.2.6. Satu Data Indonesia</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1e1udVfF097ugRzKGk4QQQHxm7oDJpU4uTYrosr0kQ2M/edit?usp=drivesdk" target="_blank">2.2.7. Proses Bisnis Kegiatan Statistik</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1RdzCU29VqzDgxdqedOEv3Z0dCQ_yZSQHlQE7DVtoaB4/edit?usp=drivesdk" target="_blank">2.2.8. Perencanaan Data</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1hdcj5uNyHzSPHddclB7ncKEzHCPblsjFEPpb-QARd_k/edit?usp=drivesdk" target="_blank">2.2.9. Pengumpulan Data</a></p>
-                    <p><a href="https://docs.google.com/forms/d/1ZpcXqII2SLieqG-H4Kl-f-hFdErgmhx_qS7ypsMJavQ/edit?usp=drivesdk" target="_blank">2.2.10. Pemeriksaan Data</a></p>
-                    <p><a href="https://docs.google.com/forms/d/12TT2Qz9VbMRrhudlo9HVN_tf49ydWYYRSzN1gnh-ZGI/edit?usp=drivesdk" target="_blank">2.2.11. Penyebarluasan Data</a></p>
-                </div>
-                <button class="toggle-button" onclick="toggleContent('telegram')">2.3. Telegram</button>
-                <div id="telegram" class="content">
-                    <p><a href="https://t.me/statistisiterampil/2" target="_blank">2.3.1. Tentang BPS</a></p>
-                    <p><a href="https://t.me/statistisiterampil/3" target="_blank">2.3.2. SKB Statistisi 1</a></p>
-                    <p><a href="https://t.me/statistisiterampil/4" target="_blank">2.3.3. SKB Statistisi 2</a></p>
-                    <p><a href="https://t.me/statistisiterampil/6" target="_blank">2.3.4. SKB Statistisi 3</a></p>
-                    <p><a href="https://t.me/statistisiterampil/34" target="_blank">2.3.5. SKB Statistisi 4</a></p>
-                    <p><a href="https://t.me/statistisiterampil/35" target="_blank">2.3.6. SKB Statistisi 5</a></p>
-                    <p><a href="https://t.me/statistisiterampil/36" target="_blank">2.3.7. SKB Statistisi 6</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="page">
+  <header class="head">
+    <img src="statistik.gif" alt="statistik">
+    <h1>STATISTISI INDONESIA</h1>
+  </header>
 
-    <script>
-        // JavaScript
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-    </script>
+  <div class="bar">
+    <div class="bar-in" role="search">
+      <input id="q" type="search" placeholder="Cari materi atau soal" aria-label="Cari materi atau soal" autocomplete="off">
+      <button id="toggleAll" type="button">Buka semua</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite" data-default="79 tautan belajar">79 tautan belajar</div>
+  </div>
+
+  <main>
+<details class="group top"><summary><span class="num">1</span><span class="ttl">Materi</span><span class="count">60</span></summary><div class="body"><details class="group"><summary><span class="num">1.1</span><span class="ttl">Aturan Hukum</span><span class="count">20</span></summary><div class="body"><details class="group"><summary><span class="num">1.1.1</span><span class="ttl">ASN</span><span class="count">3</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1EEtnf4hVPQ3lvryOHPhq3f8h4jX810ZV/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.1.1</span><span class="ttl">UU No. 20 Tahun 2023</span><span class="tag">Dokumen</span></a><a class="link" href="https://www.youtube.com/live/3XVPGOJS_CE?si=DVG8z-adnSCVDSHS&amp;t=4234" target="_blank" rel="noopener noreferrer"><span class="num">1.1.1.2</span><span class="ttl">Sosialisasi #1 | BKD DKI JAKARTA OFFICIAL</span><span class="tag">Video</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs76Ydqr16wX4oXORXQT_nTg&amp;si=BKa3Ca3FzT8eoT-u" target="_blank" rel="noopener noreferrer"><span class="num">1.1.1.3</span><span class="ttl">Sosialisasi #2 | Sushan Sugiarto</span><span class="tag">Playlist</span></a></div></details><details class="group"><summary><span class="num">1.1.2</span><span class="ttl">Jabatan Fungsional</span><span class="count">2</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1GzNGKlgXX9xhGlMMKVIHu94pE5uwrjLW/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.2.1</span><span class="ttl">PermenPANRB No. 1 Tahun 2023</span><span class="tag">Dokumen</span></a><a class="link" href="https://youtu.be/4OXBmdxk_r0?si=4oZ6oLchZ33HT2TM&amp;t=742" target="_blank" rel="noopener noreferrer"><span class="num">1.1.2.2</span><span class="ttl">Sosialisasi #1 | Kementerian PANRB</span><span class="tag">Video</span></a></div></details><details class="group"><summary><span class="num">1.1.3</span><span class="ttl">Angka Kredit, Kenaikan Pangkat dan Jenjang Jabatan Fungsional</span><span class="count">3</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1dVlC5_3dLZiGGnIr4XiNzJC9k474HdB0/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.3.1</span><span class="ttl">PerBKN No. 3 Tahun 2023</span><span class="tag">Dokumen</span></a><a class="link" href="https://youtu.be/F3v03FTcvQw?si=tc-B_J2J7Zq6O9sK&amp;t=8293" target="_blank" rel="noopener noreferrer"><span class="num">1.1.3.2</span><span class="ttl">Sosialisasi #1 | #ASNPelayanPublik</span><span class="tag">Video</span></a><a class="link" href="https://youtu.be/5J1CX_TO9d4?si=zz3xQmjgG3nc1T5d&amp;t=787" target="_blank" rel="noopener noreferrer"><span class="num">1.1.3.3</span><span class="ttl">Sosialisasi #2 | Kementerian Sekretariat Negara RI</span><span class="tag">Video</span></a></div></details><details class="group"><summary><span class="num">1.1.4</span><span class="ttl">Pengelolaan Kinerja Pegawai ASN</span><span class="count">3</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1WmtOkeRJueZEIyqL1PrbCy0cfcATbmnc/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.4.1</span><span class="ttl">PermenPANRB No. 6 Tahun 2022</span><span class="tag">Dokumen</span></a><a class="link" href="https://www.youtube.com/live/CEZz2btFTsw?si=wyM4OxVPfEijzF8U&amp;t=829" target="_blank" rel="noopener noreferrer"><span class="num">1.1.4.2</span><span class="ttl">Sosialisasi #1 | Kementerian Sekretariat Negara RI</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/UArBrAfrD3w?si=TrAleK7v93IxlyVZ&amp;t=7181" target="_blank" rel="noopener noreferrer"><span class="num">1.1.4.3</span><span class="ttl">Sosialisasi #2 | Kantor Regional 10 BKN</span><span class="tag">Video</span></a></div></details><details class="group"><summary><span class="num">1.1.5</span><span class="ttl">Manajemen PNS</span><span class="count">3</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1SNriAYOsSJOjlu77W9mOeKgj8mCTf_5P/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.5.1</span><span class="ttl">PP No. 17 Tahun 2020</span><span class="tag">Dokumen</span></a><a class="link" href="https://www.youtube.com/live/mpWbf8qJOUM?si=JkOOzkoOU0SlP0yD&amp;t=1541" target="_blank" rel="noopener noreferrer"><span class="num">1.1.5.2</span><span class="ttl">Sosialisasi #1 | Kementerian PANRB</span><span class="tag">Video</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5DoF2GriIBqNqlb0M-EiVk&amp;si=W9Kb9cm5i_BTmLCB" target="_blank" rel="noopener noreferrer"><span class="num">1.1.5.3</span><span class="ttl">Sosialisasi #2 | Ipung Tya</span><span class="tag">Playlist</span></a></div></details><details class="group"><summary><span class="num">1.1.6</span><span class="ttl">Disiplin PNS</span><span class="count">4</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1e0Fy5YDgCfws-cu8A3AATEuHuKaN0cv7/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.6.1</span><span class="ttl">PP No. 94 Tahun 2021</span><span class="tag">Dokumen</span></a><a class="link" href="https://youtu.be/ixQzY0M6yHk?si=qFC4yVSRduZBPliF&amp;t=1012" target="_blank" rel="noopener noreferrer"><span class="num">1.1.6.2</span><span class="ttl">Sosialisasi #1 | Info BMKG</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/s9A3D85S0zs?si=l1FqkL61-uzsOjL-&amp;t=1410" target="_blank" rel="noopener noreferrer"><span class="num">1.1.6.3</span><span class="ttl">Sosialisasi #2 | BKPSDM</span><span class="tag">Video</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs7AjeMC6Ttm4Nzehgm3MLpO&amp;si=sYVR1oZAU0BYCZq9" target="_blank" rel="noopener noreferrer"><span class="num">1.1.6.4</span><span class="ttl">Sosialisasi #3 | Sushan Sugiarto</span><span class="tag">Playlist</span></a></div></details><details class="group"><summary><span class="num">1.1.7</span><span class="ttl">Jabatan Fungsional Statistisi</span><span class="count">2</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1jmuRVABdoYlJcZ-2LODqMgU2UsXKyH7b/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.1.7.1</span><span class="ttl">PermenPANRB No. 12 Tahun 2022</span><span class="tag">Dokumen</span></a><a class="link" href="https://youtu.be/auZo8r0QD10?si=mtJNeimaPRKhb54E&amp;t=621" target="_blank" rel="noopener noreferrer"><span class="num">1.1.7.2</span><span class="ttl">Sosialisasi #1 | Bidang IKPTIK - Kominfo Kota Kediri</span><span class="tag">Video</span></a></div></details></div></details><details class="group"><summary><span class="num">1.2</span><span class="ttl">PAK Konversi dan E-Kinerja</span><span class="count">7</span></summary><div class="body"><a class="link" href="https://www.youtube.com/live/A08Crme6euU?si=Fxj1tLX7XeIjYv8b&amp;t=1507" target="_blank" rel="noopener noreferrer"><span class="num">1.2.1</span><span class="ttl">Sosialisasi PAK Konversi berdasarkan Predikat Kinerja SKP bagi Jabatan Fungsional</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/XJudj4T2lgo?si=gxfHRk1QuuXXi8i_&amp;t=2520" target="_blank" rel="noopener noreferrer"><span class="num">1.2.2</span><span class="ttl">PENYUSUNAN E-KINERJA BAGI CPNS DAN PPPK | Pusbangkom MKMB</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/ongrPTiRNg0?si=jpZgOd_Ld8BZpfL_&amp;t=1387" target="_blank" rel="noopener noreferrer"><span class="num">1.2.3</span><span class="ttl">PENYUSUNAN E-KINERJA BAGI CPNS DAN PPPK SESI 2 | Pusbangkom MKMB</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/jSZSaS87to8?si=-mPGnR0o9gId5Jua&amp;t=1298" target="_blank" rel="noopener noreferrer"><span class="num">1.2.4</span><span class="ttl">Sosialisasi E-Kinerja #1 | Pengembangan Pegawai</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/7q3wIFcaxws?si=o9_dgEo2ro8LGm1D&amp;t=2512" target="_blank" rel="noopener noreferrer"><span class="num">1.2.5</span><span class="ttl">Sosialisasi E-Kinerja #2 | BPI Kemendesa PDT</span><span class="tag">Video</span></a><a class="link" href="https://youtu.be/QxQ3N_FrJQM?si=_MfRF7OqkuVX8_39" target="_blank" rel="noopener noreferrer"><span class="num">1.2.6</span><span class="ttl">Tutorial E-Kinerja #1 | Sushan Sugiarto</span><span class="tag">Video</span></a><a class="link" href="https://www.youtube.com/live/w5OFxh-2YRE?si=qebT4Dc5dzRvtF1W&amp;t=1094" target="_blank" rel="noopener noreferrer"><span class="num">1.2.7</span><span class="ttl">Tutorial E-Kinerja #2 | Disdikpora Kebumen</span><span class="tag">Video</span></a></div></details><details class="group"><summary><span class="num">1.3</span><span class="ttl">Statistik Sektoral</span><span class="count">23</span></summary><div class="body"><details class="group"><summary><span class="num">1.3.1</span><span class="ttl">Modul</span><span class="count">16</span></summary><div class="body"><details class="group"><summary><span class="num">1.3.1.1</span><span class="ttl">Direktorat Diseminasi Statistik BPS</span><span class="count">6</span></summary><div class="body"><a class="link" href="https://drive.google.com/file/d/1XSspOEuz32q2JED9MyKZ6dpyQ6TcDuz_/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.1</span><span class="ttl">Rapat Koordinasi Pembinaan Statistik Sektoral 2025</span><span class="tag">Dokumen</span></a><a class="link" href="https://drive.google.com/file/d/1PaaPD2YXAGPBTgHuQGzsmneUMP8xh__F/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.2</span><span class="ttl">Identifikasi Kegiatan Statistik Sektoral</span><span class="tag">Dokumen</span></a><a class="link" href="https://drive.google.com/drive/folders/1Jt-PfNg6eimVfW05XUPeiYNEAZFLZg-Y?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.3</span><span class="ttl">Rekomendasi Kegiatan Statistik &amp; Metadata Statistik</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/file/d/1C6PvGvwahX8TvbDRk4iP-zYBgRfmEbgS/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.4</span><span class="ttl">Proses Bisnis Statistik Terstandar</span><span class="tag">Dokumen</span></a><a class="link" href="https://drive.google.com/drive/folders/1ax4U5Eoi14xRiE0FgzCmKEIsRcA_NLKj?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.5</span><span class="ttl">Kualitas Data dan Kelembagaan</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1xpFkInygfuLKfdRCYKsaxdFPl0C1ZALD?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.1.6</span><span class="ttl">Evaluasi Pembinaan Statistik Sektoral</span><span class="tag">Folder</span></a></div></details><details class="group"><summary><span class="num">1.3.1.2</span><span class="ttl">Deputi Bidang Metodologi dan Informasi Statistik BPS</span><span class="count">4</span></summary><div class="body"><a class="link" href="https://drive.google.com/drive/folders/1ZVEMLHcrxuwI-B2m1fbyk6z51bRj9a8Y?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.2.1</span><span class="ttl">Tata Laksana Penyelenggaraan Statistik</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1ZgvPdHZagL6NpNtyxVedvuRyc6IVuRMC?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.2.2</span><span class="ttl">Langkah Praktis dalam Survei dan Kompilasi Produk Administrasi</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1ZpsS-g_Tv0NSxlKjwNytkJHI75ra9Mmc?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.2.3</span><span class="ttl">Aplikasi Penyelenggaraan Kegiatan Statistik</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1ZqTXcPqEth7VSYiE6OFabSXlSc9dl604?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.2.4</span><span class="ttl">Dasar-dasar Statistik</span><span class="tag">Folder</span></a></div></details><details class="group"><summary><span class="num">1.3.1.3</span><span class="ttl">Pusat Pendidikan dan Pelatihan BPS</span><span class="count">6</span></summary><div class="body"><a class="link" href="https://drive.google.com/drive/folders/1YTMKPRXRD1ulo-jC8KZKAqQojJyovx4U?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.1</span><span class="ttl">Perencanaan</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1YTal7c3xSGnZ2wJmyEQk5IOdq09Wz5nx?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.2</span><span class="ttl">Perancangan</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1YVejIbEUoYulCuHpV9DZ-dqJT1Xqun6-?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.3</span><span class="ttl">Pengumpulan</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1Y_c2muRSmwhbdcHB4qmg_GbPHaiGOwJX?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.4</span><span class="ttl">Pengolahan</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1Ybs0na8FaGf0YdhP6-vH8DDtMWa_FD7P?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.5</span><span class="ttl">Analisis</span><span class="tag">Folder</span></a><a class="link" href="https://drive.google.com/drive/folders/1YbztDXK_0R4M0P2QeXVKrzj2lyuOQ55i?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">1.3.1.3.6</span><span class="ttl">Diseminasi dan Evaluasi</span><span class="tag">Folder</span></a></div></details></div></details><details class="group"><summary><span class="num">1.3.2</span><span class="ttl">Webinar</span><span class="count">7</span></summary><div class="body"><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5GQnE3BYOmaA19RaHWb_wH&amp;si=YsTWdUA59Zz37O-M" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.1</span><span class="ttl">Pembinaan Statistik Sektoral</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4DSbU4AU9oU-K6_rj_8Oam&amp;si=4F6rv9HLz1FtZfPm" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.2</span><span class="ttl">Playlist #1 | BPS Provinsi DKI Jakarta</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6FQtx_funWku7clKgKH433&amp;si=GKqMjtt74FrZ6VQz" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.3</span><span class="ttl">Playlist #2 | BPS Provinsi Jawa Tengah</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4bsm2pAQamr4i9k7a-6aqk&amp;si=2-Gdk_xSVWaV0OK5" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.4</span><span class="ttl">Playlist #3 | BPS Provinsi Kalimantan Tengah</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6CvD6aamegShoE6uUyLydp&amp;si=o7c9egc_S62HlZqn" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.5</span><span class="ttl">Playlist #4 | BPS Provinsi Sulawesi Barat</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs5YCCcLaKrCKVP61dvz49PW&amp;si=PE24EPvjbWyrKMra" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.6</span><span class="ttl">Playlist #5 | BPS Provinsi Sulawesi Tenggara</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4EsCoOHMWKFrShAkSuyB6Z&amp;si=AhlcZ1Lzm9CO5-G2" target="_blank" rel="noopener noreferrer"><span class="num">1.3.2.7</span><span class="ttl">Playlist #6 | BPS Kota Pontianak</span><span class="tag">Playlist</span></a></div></details></div></details><details class="group"><summary><span class="num">1.4</span><span class="ttl">Statistika</span><span class="count">3</span></summary><div class="body"><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs6MTtyXRiWFouL5hoc0ntv5&amp;si=ZWGu4ZdGaIMVomO7" target="_blank" rel="noopener noreferrer"><span class="num">1.4.1</span><span class="ttl">Statistika dan Probabilitas | Indonesia Belajar</span><span class="tag">Playlist</span></a><a class="link" href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener noreferrer"><span class="num">1.4.2</span><span class="ttl">Statistics and Probability | Khan Academy</span><span class="tag">Situs web</span></a><a class="link" href="https://youtube.com/playlist?list=PLQ7o5yq8Rbs4u7BJdKE7XAGS3f39R6Hm_&amp;si=w4jtJcNsBlBil7Po" target="_blank" rel="noopener noreferrer"><span class="num">1.4.3</span><span class="ttl">Statistik Sosial | Duta Data Statistik</span><span class="tag">Playlist</span></a></div></details><details class="group"><summary><span class="num">1.5</span><span class="ttl">Aplikasi Data</span><span class="count">7</span></summary><div class="body"><a class="link" href="https://youtu.be/rro5t8eHXaY?si=8b8bUR60t4gwp0Do" target="_blank" rel="noopener noreferrer"><span class="num">1.5.1</span><span class="ttl">Excel Full Course | Learnit Training</span><span class="tag">Video</span></a><a class="link" href="https://youtu.be/qrbf9DtR3_c?si=ycBNZ7eqF-6yuWX9" target="_blank" rel="noopener noreferrer"><span class="num">1.5.2</span><span class="ttl">Excel Data Analysis Full Course | Learnit Training</span><span class="tag">Video</span></a><a class="link" href="https://youtube.com/playlist?list=PLSdO4ZofSedqvx7U-JRzSbbYLvcuUP7pf&amp;si=OL6AXsmtjweq7nlS" target="_blank" rel="noopener noreferrer"><span class="num">1.5.3</span><span class="ttl">Tutorial Ms. Excel | Budi Tutorials</span><span class="tag">Playlist</span></a><a class="link" href="https://youtube.com/playlist?list=PLh4cGGFoAFuYwvrpQcohWBz5u8uGkeFlp&amp;si=YBKcuwEnnsVAunEZ" target="_blank" rel="noopener noreferrer"><span class="num">1.5.4</span><span class="ttl">Rumus Excel | Ignasius Ryan</span><span class="tag">Playlist</span></a><a class="link" href="https://youtu.be/8mIVgA1iFJ4?si=nBVrpbgy-cGy_2uI" target="_blank" rel="noopener noreferrer"><span class="num">1.5.5</span><span class="ttl">Google Sheets Full Course | Learnit Training</span><span class="tag">Video</span></a><a class="link" href="https://youtu.be/kSIPCTHjIYg?si=S-g8aY-VLgNe8SLD" target="_blank" rel="noopener noreferrer"><span class="num">1.5.6</span><span class="ttl">Google Forms Full Course | Learnit Training</span><span class="tag">Video</span></a><a class="link" href="https://youtu.be/72dhMe8FYy0?si=f5a20tdrwz0YTDUo" target="_blank" rel="noopener noreferrer"><span class="num">1.5.7</span><span class="ttl">Tutorial Lengkap Looker Studio + Portofolio Analis Data | HaloTech Academy</span><span class="tag">Video</span></a></div></details></div></details><details class="group top"><summary><span class="num">2</span><span class="ttl">Soal</span><span class="count">19</span></summary><div class="body"><details class="group"><summary><span class="num">2.1</span><span class="ttl">Google Drive</span><span class="count">1</span></summary><div class="body"><a class="link" href="https://drive.google.com/drive/folders/1_1PiElVFqgXSKslOOFqLFNkq_zoMvAOQ?usp=drive_link" target="_blank" rel="noopener noreferrer"><span class="num">2.1.1</span><span class="ttl">Softfile</span><span class="tag">Folder</span></a></div></details><details class="group"><summary><span class="num">2.2</span><span class="ttl">Google Forms</span><span class="count">11</span></summary><div class="body"><a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSeFr0pKtGQKi6iYzYdMZXref4IQaMcPaWjl_W7G3w47DJtTNA/viewform" target="_blank" rel="noopener noreferrer"><span class="num">2.2.1</span><span class="ttl">Statistisi #1</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLScyRyrhzLSuGlTP64_6AUFEe37wBD0dYRdP5mxRRiwTy8aYqw/viewform" target="_blank" rel="noopener noreferrer"><span class="num">2.2.2</span><span class="ttl">Statistisi #2</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSf-tQTxVTP2Ad0hCiq6ccB4gC4esbFC404jquhtp1XkCFZqfQ/viewform" target="_blank" rel="noopener noreferrer"><span class="num">2.2.3</span><span class="ttl">Statistisi #3</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1jVagkF3R4FWvUoRnTDtC69uvIGWMD0D4Bg5oj-RxX58/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.4</span><span class="ttl">Sistem Statistik Nasional</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1JpJn9DSsh99pAKjuD1YAfsG2fioM1MUoIDiSDwYlpz0/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.5</span><span class="ttl">Penyelenggaraan Kegiatan Statistik</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1mLEA8sg0y_iMph6W6gUf4FUgEspSFq2EtKkdAAZ4gS8/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.6</span><span class="ttl">Satu Data Indonesia</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1e1udVfF097ugRzKGk4QQQHxm7oDJpU4uTYrosr0kQ2M/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.7</span><span class="ttl">Proses Bisnis Kegiatan Statistik</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1RdzCU29VqzDgxdqedOEv3Z0dCQ_yZSQHlQE7DVtoaB4/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.8</span><span class="ttl">Perencanaan Data</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1hdcj5uNyHzSPHddclB7ncKEzHCPblsjFEPpb-QARd_k/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.9</span><span class="ttl">Pengumpulan Data</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/1ZpcXqII2SLieqG-H4Kl-f-hFdErgmhx_qS7ypsMJavQ/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.10</span><span class="ttl">Pemeriksaan Data</span><span class="tag">Formulir</span></a><a class="link" href="https://docs.google.com/forms/d/12TT2Qz9VbMRrhudlo9HVN_tf49ydWYYRSzN1gnh-ZGI/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span class="num">2.2.11</span><span class="ttl">Penyebarluasan Data</span><span class="tag">Formulir</span></a></div></details><details class="group"><summary><span class="num">2.3</span><span class="ttl">Telegram</span><span class="count">7</span></summary><div class="body"><a class="link" href="https://t.me/statistisiterampil/2" target="_blank" rel="noopener noreferrer"><span class="num">2.3.1</span><span class="ttl">Tentang BPS</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/3" target="_blank" rel="noopener noreferrer"><span class="num">2.3.2</span><span class="ttl">SKB Statistisi 1</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/4" target="_blank" rel="noopener noreferrer"><span class="num">2.3.3</span><span class="ttl">SKB Statistisi 2</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/6" target="_blank" rel="noopener noreferrer"><span class="num">2.3.4</span><span class="ttl">SKB Statistisi 3</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/34" target="_blank" rel="noopener noreferrer"><span class="num">2.3.5</span><span class="ttl">SKB Statistisi 4</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/35" target="_blank" rel="noopener noreferrer"><span class="num">2.3.6</span><span class="ttl">SKB Statistisi 5</span><span class="tag">Telegram</span></a><a class="link" href="https://t.me/statistisiterampil/36" target="_blank" rel="noopener noreferrer"><span class="num">2.3.7</span><span class="ttl">SKB Statistisi 6</span><span class="tag">Telegram</span></a></div></details></div></details>
+  </main>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),
+      st=document.getElementById('status'),
+      btn=document.getElementById('toggleAll'),
+      links=[].slice.call(document.querySelectorAll('.link')),
+      groups=[].slice.call(document.querySelectorAll('details')).reverse();
+
+  function filter(){
+    var t=q.value.trim().toLowerCase(),n=0;
+    links.forEach(function(a){
+      var ok=!t||a.textContent.toLowerCase().indexOf(t)>-1;
+      a.hidden=!ok; if(ok)n++;
+    });
+    groups.forEach(function(d){
+      var any=!!d.querySelector('.link:not([hidden])');
+      d.hidden=!any;
+      d.open=t?any:false;
+    });
+    st.textContent=t?(n?n+' hasil untuk “'+q.value.trim()+'”':'Tidak ada hasil untuk “'+q.value.trim()+'”. Coba kata kunci lain.'):st.getAttribute('data-default');
+    sync();
+  }
+  function sync(){
+    var closed=groups.some(function(d){return !d.hidden&&!d.open});
+    btn.textContent=closed?'Buka semua':'Tutup semua';
+  }
+  btn.addEventListener('click',function(){
+    var open=btn.textContent==='Buka semua';
+    groups.forEach(function(d){ if(!d.hidden) d.open=open; });
+    sync();
+  });
+  groups.forEach(function(d){d.addEventListener('toggle',sync)});
+  q.addEventListener('input',filter);
+  filter();
+})();
+</script>
 </body>
 </html>
